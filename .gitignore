@@ -1,5 +1,10 @@
 .gradle
-/build/
+*/build/
+*/out/
+*/src/META-INF/
+*.iml
+*/.idea/
+
 
 # Ignore Gradle GUI config
 gradle-app.setting
