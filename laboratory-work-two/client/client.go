@@ -8,7 +8,12 @@ import (
 	"log"
 	"net"
 	"os"
+	"time"
 
+	"github.com/faiface/beep"
+
+	"github.com/faiface/beep/mp3"
+	"github.com/faiface/beep/speaker"
 	"github.com/kevin-cantwell/dotmatrix"
 )
 
@@ -32,6 +37,18 @@ func main() {
 			}
 			if source == "Да" {
 				check = true
+				f, err := os.Open("Children_of_the_Omnissiah.mp3")
+				if err != nil {
+					log.Fatal(err)
+				}
+				streamer, format, err := mp3.Decode(f)
+				if err != nil {
+					log.Fatal(err)
+				}
+				defer streamer.Close()
+				speaker.Init(format.SampleRate, format.SampleRate.N(time.Second/10))
+
+				speaker.Play(beep.Loop(-1, streamer))
 			} else {
 				if source == "Нет" {
 					break
@@ -70,4 +87,8 @@ func main() {
 
 func Encode(img image.Image) error {
 	return dotmatrix.Print(os.Stdout, img)
+}
+
+func sound() {
+
 }
