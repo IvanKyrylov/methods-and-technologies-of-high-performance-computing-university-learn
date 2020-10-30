@@ -3,3 +3,4 @@
 
 __Laboratory work:__
 - [1](https://github.com/IvanKyrylov/methods-and-technologies-of-high-performance-computing-university-learn/tree/master/laboratory-work-one)
+- [2](https://github.com/IvanKyrylov/methods-and-technologies-of-high-performance-computing-university-learn/tree/master/laboratory-work-two)
